@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Josefin+Sans:wght@500&family=Pushster&family=Roboto:wght@700&family=Waterfall&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+    font: bold;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lalezar', cursive;
+}
+
+body {
+    background: rgb(236, 234, 234);
+}
+a {
+	color: rgb(189, 189, 202);
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+}
+#logo{
+    color: rgb(236, 206, 37);
+    font-size: 4rem;
+}
+section.chat__section {
+    width: 800px;
+    max-width: 90%;
+    background: #fff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.chatMainArea {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    padding: 10px;
+    background: white;
+    margin: 10px;
+}
+.sender_name {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #9364eb;
+}
+#sharedLocationIcon{
+   color: rgb(252, 7, 7);
+}
+.time {
+    color: rgba(158, 154, 154, 0.993);
+}
+
+.messagesContainer{
+    height: 400px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    /* it gives a scroll bar to the messages in case of overflow */
+    overflow-y: auto;
+    padding-top: 40px;
+}
+
+.msgElement{
+    color: #0e60ec;
+    font-family: 'Montserrat', sans-serif;
+}
+.message{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+#messageTextArea {
+    width: 80%;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    background: #FBFBFB;
+    border: solid 1px;
+    border-color: #ababb3;
+    border-radius: 50px;
+}
+.wrapbox{
+    border : solid 1px;
+    border-color: #e5e7eb;
+    align-items: center;
+}
+
+.chatSidebar {
+    width: 20%;
+    margin: 10px;
+    padding: 5px;
+    background: #FFFFFF;
+    box-shadow: 0 14px 28px rgba(68, 66, 66, 0.25), 
+    0 10px 10px rgba(0,0,0,0.22);
+    align-items: center;
+    text-align: center;
+}
+
+.roomname {
+    padding: 10px;
+    overflow: hidden;
+    color: rgb(31, 134, 230);
+    border:none;
+    text-align: left;
+    border-bottom: 1px solid rgb(106, 106, 109);
+    margin: 10px;
+}
+
+.userListItem {
+    padding: 10px;
+    overflow: hidden;
+    color: rgb(27, 29, 26);
+    align-items: center;
+    /* border-radius: 10px; */
+    border:none;
+    border-bottom: 1px solid rgb(191, 194, 196);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+/* .userOnlineStatus{
+    background: rgb(42, 221, 42);
+    border: solid 0.5px;
+    margin-right: 10px;
+    border-color: #616768;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+} */
+
+.locationLink {
+    color: #383c3d;
+    font-family: 'Josefin Slab', serif;
+}
+
+.locationLink:hover {
+    color: rgb(46, 44, 44);
+}
+
+
+.sendButton {
+    font-size: 1.5rem;
+    border: none;
+    color: rgb(42, 216, 149);
+    margin: 5px;
+    background-color: #fff;
+}
+
+.sendButton:hover {
+    color: rgb(27, 98, 230);
+}
+
+.sendLocationButton {
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    color: rgb(247, 219, 63);
+    background-color: #fff;
+}
+
+.sendLocationButton:hover {
+    color: rgb(236, 205, 25);
+}
+
+.messagesCompose {
+    border: solid 1px;
+    border-color: #d8dfe0;
+    padding: 2px;
+    align-items: center;
+} 
+.incoming {
+    background: rgb(42, 216, 149);
+    color: #fff;  
+    margin-left: auto;
+    border-radius: 50px 50px 10px 50px;
+}
+.outgoing {
+    background: #e0e0e0;
+    color: #787986;
+    border-radius: 10px 50px 50px 50px;
+}
+
+.incoming,.outgoing {
+    padding: 20px; 
+    margin-bottom: 40px;
+    max-width: 300px;
+    min-width: 250px;
+    position: relative;
+}
+.incoming h4 , .outgoing h4 {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: rgb(136, 132, 132);
+    font-size: 14px;
+}
