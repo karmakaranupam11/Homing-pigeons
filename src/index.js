@@ -36,6 +36,7 @@ io.on('connection', (socket) => {
             
             io.to(obj.room).emit('roomData',{
                 room: obj.room,
+                user : obj.username.toUpperCase(),
                 users : getusrinroom(obj.room)
             })
             
@@ -53,6 +54,7 @@ io.on('connection', (socket) => {
         if (filter.isProfane(messagetext)) {
             return callback('Profanity is not allowed');
         }
+        // error
         socket.emit('Incoming', generateMessage(user.username ,messagetext));
         socket.broadcast.to(user.room).emit('Outgoing', generateMessage(user.username,messagetext));
         // io.to(user.room).emit('message', generateMessage(user.username,messagetext));

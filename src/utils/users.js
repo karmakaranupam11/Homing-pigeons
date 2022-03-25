@@ -26,7 +26,7 @@ const addusr = (obj) => {
     //store user
     const user = {
         id: obj.id,
-        username: username,
+        username: username.toUpperCase(),
         room : room 
     }
     users.push(user);

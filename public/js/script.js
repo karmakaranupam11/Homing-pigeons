@@ -1,10 +1,12 @@
 const socket = io();
 
-const sendMessageButton = document.getElementById('sendButton');
-const message = document.getElementById('messageTextArea');
-const messagesContainer = document.getElementById('messagesContainer');
-const form = document.getElementById('messagesForm');
-const chatSidebar = document.getElementById('chatSidebar');
+const sendMessageButton = document.getElementById('sendMessageButton');
+const message = document.getElementById('textarea');
+const roomid = document.getElementById('roomid');
+const messagesContainer = document.getElementById('message__area');
+const username = document.getElementById('username');
+// const form = document.getElementById('messagesForm');
+const usersjoinedList = document.getElementById('users');
 
 
 const obj = Qs.parse(location.search, { ignoreQueryPrefix: true })// here in location.search we get the query 
@@ -32,6 +34,9 @@ socket.on('OutgoingPosition', (location) => { //printing the position on the con
    messagesContainer.appendChild(msg);
    scrollToBottom();
 })
+
+// for messages 
+
 socket.on('Incoming', (message) => {
    console.log(message.text);
    const msg = document.createElement("p");
@@ -45,7 +50,7 @@ socket.on('joiningMessage', (message) => {
    console.log(message.text);
    const msg = document.createElement("p");
    msg.innerHTML = `<div class="message">
-                           <span class="time">
+                          <span class="time">
                                  ${moment(message.time).format('h:mm a')}
                            </span>
                            <div class="msgElement">
@@ -80,17 +85,24 @@ socket.on('Outgoing', (message) => {
    scrollToBottom();
 })
 
+// room data 
+
 socket.on('roomData', (obj) => {
-   chatSidebar.innerHTML = ``;
-   const userListContainer = document.createElement("div");
-   userListContainer.innerHTML = `<p class="roomname"><i class="fas fa-users"></i> ${obj.room}</p>`;
+   usersjoinedList.innerHTML = ``;
+   console.log('this is the user ',obj);
+   username.innerHTML = `${obj.user}`;
+   // const userListContainer = document.createElement("div");
+   roomid.innerHTML = `<i class="fas fa-users"></i> ${obj.room}`;
    obj.users.forEach((user) => {
-      const userListItem = document.createElement("div");
-      userListItem.innerHTML = `<p class="userListItem"><i class="fas fa-user-circle"></i><span class="userOnlineStatus"></span>${user.username}</p>`;
-      userListContainer.appendChild(userListItem);
+      const userListItem = document.createElement("li");
+      userListItem.className = "userlistItem";
+      userListItem.innerHTML = `<i class="fas fa-user-circle"></i> ${user.username}`;
+      usersjoinedList.appendChild(userListItem);
    })
-   chatSidebar.appendChild(userListContainer);
 })
+
+
+// sending message handlers
 
 sendMessageButton.addEventListener('click', (e) => {
    e.preventDefault();
@@ -110,7 +122,27 @@ sendMessageButton.addEventListener('click', (e) => {
    }
 })
 
+// textarea.addEventListener('keyup', (e) => {
+//    // check if the key pressed is enter
+//    if (e.key === 'Enter') {
+//       // sendMessageButton.setAttribute('disabled', 'disabled');
+//       socket.emit('messageon', message.value, (msg) => {
+//          // sendMessageButton.removeAttribute('disabled');
+//          if (msg) {
+//             console.log(msg);
+//          }
+//          else {
+//             console.log("the message was delivered");
+//          }
+//       }); // emit the message to other connections
+//       message.value = '';
+//    }
+// })
+
+
 const sendLocationButton = document.getElementById('sendLocationButton');
+
+// send location handler
 
 sendLocationButton.addEventListener('click', (e) => {
    e.preventDefault();
