@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -10,16 +14,24 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #979696;
-    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
 }
+
+nav {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 section.chat__section {
     width: 800px;
     max-width: 90%;
-    background: #fff;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    background: rgb(243, 241, 241);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(45px);
 }
-.brand {
+
+/* .brand {
     padding: 20px;
     background: #f1f1f1;
     display: flex;
@@ -30,8 +42,8 @@ section.chat__section {
     font-size: 20px;
     color: #444;
     margin-left: 10px;
-}
-.message__area{
+} */
+.message__area {
     height: 400px;
     padding: 16px;
     display: flex;
@@ -40,19 +52,24 @@ section.chat__section {
     overflow-y: auto;
     padding-top: 40px;
 }
-form{
+
+form {
     border: solid 2px;
-    border-color: rgb(133, 130, 130);
+    border-color: #ebe5e5;
+    border-radius: 10px;
+    background-color: white;
 }
+
 #textarea {
     border: none;
     padding: 20px;
     font-size: 16px;
     outline: none;
+    border-radius: 10px;
     background: #FBFBFB;
 }
 
-#sendMessageButton ,#sendLocationButton{
+#sendMessageButton, #sendLocationButton {
     float: right;
     padding: 10px;
     border: none;
@@ -61,61 +78,81 @@ form{
     border-radius: 50px;
     margin: 5px;
 }
-#sendLocationButton{
-   color: rgb(93, 236, 27); 
+
+#sendLocationButton {
+    color: rgb(236, 144, 22);
 }
-.userlistItem{
-    background-color: #7c7c83;
+
+.userlistItem {
     padding: 5px;
     margin: 5px;
+    border-bottom: solid 1px #b6b0b0;
 }
-.userlistItem i{
+
+.userlistItem i {
     margin: 5px;
-    color: #f1f1f1;
+    font-size: 1.2em;
+    color: #797575;
 }
-.fa-users{
-    margin: 5px;
-    /* color: #f1f1f1; */
-}
-#sendMessageButton{
-    color: rgb(42, 121, 211);
+
+
+#sendMessageButton {
+    color: #89bda9;
 }
 
 
 
 /* div for the message */
-.incoming,.outgoing {
-    padding: 20px; 
-    border-radius: 4px; 
-    margin-bottom: 40px;
+.incoming, .outgoing {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    width: 200px;
     max-width: 300px;
     position: relative;
     overflow-wrap: break-word;
+    box-shadow: 0 10px 10px rgba(119, 118, 118, 0.4);
+    font-family: 'Roboto', sans-serif;
 }
-.message{
+
+.message {
     text-align: center;
-    color: #787986;
+    color: #323236;
 }
-.navbar-nav li{
+
+.time {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 0.8em;
+}
+
+.navbar-nav li {
     color: black;
 }
-.msgElement{
-    color: rgb(105, 194, 105);
+
+.msgElement {
+    color: rgb(29, 56, 29);
 }
 
 .incoming {
-    background: #8F8BE8;
-    border-radius: 50px 50px 0px 50px;
+
+    background: rgb(216, 215, 215);
+    color: rgb(37, 36, 36);
+    border-radius: 10px 10px 0px 10px;
     margin-left: auto;
-    color: #fff;  
+
 }
+
 .outgoing {
-    background: #e9eafd;
+    
+    background: white;
     color: #787986;
-    border-radius: 0px 50px 50px 50px;
+    border-radius: 0px 10px 10px 10px;
 }
+
 /* usename */
-h4 {
+.user {
     left: 0;
-    color: rgb(24, 23, 23);
+    font-family: 'Alfa Slab One', cursive;
+    color: rgb(12, 11, 11);
+    font-size: 0.8em;
 }

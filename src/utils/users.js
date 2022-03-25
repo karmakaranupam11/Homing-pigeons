@@ -1,5 +1,7 @@
 const users = [];
-
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 const addusr = (obj) => {
     const username = obj.username.trim().toLowerCase();
     const room  = obj.room .trim().toLowerCase();
@@ -26,7 +28,7 @@ const addusr = (obj) => {
     //store user
     const user = {
         id: obj.id,
-        username: username.toUpperCase(),
+        username: capitalizeFirstLetter(username),
         room : room 
     }
     users.push(user);
@@ -53,5 +55,6 @@ module.exports = {
     addusr,
     removeusr,
     getusr,
+    capitalizeFirstLetter,
     getusrinroom 
 }

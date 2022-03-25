@@ -20,7 +20,7 @@ socket.on('IncomingPosition', (location) => { //printing the position on the con
    console.log(location);
    const msg = document.createElement("div");
    msg.className = "incoming";
-   msg.innerHTML = `<h4 class="user">${location.username}   ${moment(location.time).format('h:mm a')}</h4>
+   msg.innerHTML = `<span class="user">${location.username}   ${moment(location.time).format('h:mm a')}</span>
         <p class="messagetext"> <a id="locationLink" class="locationLink" href="${location.location}">shared <i id="sharedLocationIcon" class="fas fa-map-marker-alt"></i>ocation click here to view</a></p>`;
    messagesContainer.appendChild(msg);
    scrollToBottom();
@@ -29,7 +29,7 @@ socket.on('OutgoingPosition', (location) => { //printing the position on the con
    console.log(location);
    const msg = document.createElement("div");
    msg.className = "outgoing";
-   msg.innerHTML = `<h4 class="user">${location.username}   ${moment(location.time).format('h:mm a')}</h4>
+   msg.innerHTML = `<span class="user">${location.username}   ${moment(location.time).format('h:mm a')}</span>
         <p class="messagetext"> <a id="locationLink" class="locationLink" href="${location.location}">shared <i id="sharedLocationIcon" class="fas fa-map-marker-alt"></i>ocation click here to view</a></p>`;
    messagesContainer.appendChild(msg);
    scrollToBottom();
@@ -41,7 +41,7 @@ socket.on('Incoming', (message) => {
    console.log(message.text);
    const msg = document.createElement("p");
    msg.className = "incoming";
-   msg.innerHTML = `<h4 class="user">${message.username}    ${moment(message.time).format('h:mm a')}</h4>
+   msg.innerHTML = `<span class="user">${message.username}    ${moment(message.time).format('h:mm a')}</span>
         <p class="messagetext">${message.text}</p>`;
    messagesContainer.appendChild(msg);
    scrollToBottom();
@@ -78,7 +78,7 @@ socket.on('Outgoing', (message) => {
    console.log(message.text);
    const msg = document.createElement("div");
    msg.className = "outgoing";
-   msg.innerHTML = `<h4 class="user">${message.username}   ${moment(message.time).format('h:mm a')}</h4>
+   msg.innerHTML = `<span class="user">${message.username}   ${moment(message.time).format('h:mm a')}</span>
         <p class="messagetext">${message.text}</p>`;
 
    messagesContainer.appendChild(msg);

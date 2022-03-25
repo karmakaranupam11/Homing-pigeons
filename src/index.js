@@ -4,7 +4,7 @@ const socketio = require('socket.io')
 const http = require('http')
 const Filter = require('bad-words')
 const { generateMessage , generateLocation } = require('./utils/message')
-const { addusr, removeusr, getusr, getusrinroom } = require('./utils/users')
+const { addusr, removeusr, getusr, getusrinroom, capitalizeFirstLetter } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app) // we need to do this as socket io need the http server
@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
             
             io.to(obj.room).emit('roomData',{
                 room: obj.room,
-                user : obj.username.toUpperCase(),
+                user : capitalizeFirstLetter(obj.username),
                 users : getusrinroom(obj.room)
             })
             
