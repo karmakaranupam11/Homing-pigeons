@@ -1,6 +1,6 @@
 ### Homing-pigeons ###
 
-Homing-pigeons is a realtime messaging web application, in which can join a chat room and start chatting,the messaging application also prevents sending of abusive language and users can also share their current location.
+Homing-pigeons is a realtime messaging web application, in which users can join in a chat room and start chatting,the messaging application also prevents sending of any abusive words and users can also share their current location.
 
 ### Tech stack ###
 
@@ -10,3 +10,7 @@ Homing-pigeons is a realtime messaging web application, in which can join a chat
 - NodeJs
 - ExpressJs
 - Socket.io
+
+### For starting the application
+
+```$> npm start```
