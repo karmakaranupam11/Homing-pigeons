@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 
 * {
     padding: 0;
@@ -57,30 +59,74 @@ form {
     background: #FBFBFB;
 }
 
+#logo {
+    font-size: 1.4em;
+    color: rgb(7, 109, 75);
+}
+
+
+.navbar-brand span{
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 5px;
+    font-weight: bold;
+    color: rgb(83, 82, 80);
+}
+
 #sendMessageButton, #sendLocationButton {
     float: right;
     padding: 10px;
     border: none;
-    font-size: 1.4rem;
-    background-color: #fcfcfc;
-    border-radius: 50px;
-    margin: 5px;
+    background-color: #FBFBFB;
+    font-size: 1.4em;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 5px;
 }
 
 #sendLocationButton {
     color: rgb(236, 144, 22);
 }
 
+#users {
+    background-color: #b5f7de;
+    border: solid 2px #94c7b4;
+}
+
+.fa-users {
+    padding: 0.1em;
+    background-color: rgb(17, 17, 16);
+    color: #b5f7de;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+#usernav {
+    font-size: 1.2em;
+}
+
 .userlistItem {
     padding: 5px;
     margin: 5px;
-    border-bottom: solid 1px #b6b0b0;
+    background-color: #b5f7de;
+    border: solid 2px #739e8e;
+    color: #739e8e;
+    border-radius: 5px;
+}
+
+.locationLink {
+    color: #064e32;
+    text-decoration: none;
+}
+
+.locationLink i {
+    color: rgb(170, 28, 28);
 }
 
 .userlistItem i {
     margin: 5px;
     font-size: 1.2em;
-    color: #797575;
+    color: #739e8e;
 }
 
 
@@ -97,7 +143,7 @@ form {
     max-width: 300px;
     position: relative;
     overflow-wrap: break-word;
-    box-shadow: 0 10px 10px rgba(119, 118, 118, 0.4);
+    box-shadow: 0 10px 10px rgba(165, 164, 164, 0.4);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -121,7 +167,7 @@ form {
 
 .incoming {
 
-    background: rgb(216, 215, 215);
+    background: #ccf3e4;
     color: rgb(37, 36, 36);
     border-radius: 10px 10px 0px 10px;
     margin-left: auto;

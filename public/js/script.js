@@ -90,7 +90,7 @@ socket.on('Outgoing', (message) => {
 socket.on('roomData', (obj) => {
    usersjoinedList.innerHTML = ``;
    console.log('this is the user ',obj);
-   username.innerHTML = `${obj.user}`;
+   username.innerHTML = `<i id="usernav" class="fas fa-user-circle"></i> ${obj.user}`;
    // const userListContainer = document.createElement("div");
    roomid.innerHTML = `<i class="fas fa-users"></i> ${obj.room}`;
    obj.users.forEach((user) => {

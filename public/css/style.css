@@ -18,13 +18,14 @@ body {
 }
 
 #logo {
-	color: rgb(236, 206, 37);
+	color: rgb(7, 109, 75);
 	font-size: 4rem;
 }
 
 h1 {
 	font-weight: bold;
 	margin: 0;
+	color: rgb(236, 208, 49);
 }
 
 h2 {
@@ -51,7 +52,7 @@ a {
 }
 
 button {
-	border-radius: 20px;
+	border-radius: 50px;
 	border: 1px solid rgb(247, 219, 63);
 	background-color: rgb(247, 219, 63);
 	color: #0e0d0d;
