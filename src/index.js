@@ -30,13 +30,16 @@ io.on('connection', (socket) => {
             return callback(error);
         }
         else {
+            // formatting 
+            obj.username = capitalizeFirstLetter(obj.username);
+            
             socket.join(obj.room);
+            socket.emit('userdetails',{user : obj.username});
             socket.emit('joiningMessage', generateMessage(obj.username ,`You joined the chat`));
             socket.broadcast.to(obj.room).emit('joiningMessage', generateMessage(obj.username,`${obj.username} joined the chat`));
             
             io.to(obj.room).emit('roomData',{
                 room: obj.room,
-                user : capitalizeFirstLetter(obj.username),
                 users : getusrinroom(obj.room)
             })
             
@@ -52,12 +55,12 @@ io.on('connection', (socket) => {
         const filter = new Filter();
 
         if (filter.isProfane(messagetext)) {
+            socket.emit('badLanguageAlert', generateMessage(user.username,"Your message contains disrespectful words!"));
             return callback('Profanity is not allowed');
         }
         // error
         socket.emit('Incoming', generateMessage(user.username ,messagetext));
         socket.broadcast.to(user.room).emit('Outgoing', generateMessage(user.username,messagetext));
-        // io.to(user.room).emit('message', generateMessage(user.username,messagetext));
         callback();// for acknowledgement
     })
 

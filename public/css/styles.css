@@ -65,7 +65,7 @@ form {
 }
 
 
-.text{
+.text {
     font-family: 'Montserrat', sans-serif;
     margin-left: 5px;
     font-weight: bold;
@@ -76,7 +76,7 @@ form {
     float: right;
     padding: 10px;
     border: none;
-    background-color: #FBFBFB;
+    background-color: white;
     font-size: 1.4em;
     margin-top: auto;
     margin-bottom: auto;
@@ -90,6 +90,10 @@ form {
 #users {
     background-color: #b5f7de;
     border: solid 2px #94c7b4;
+}
+
+.messageElement {
+    color: rgb(240, 87, 87);
 }
 
 .fa-users {
@@ -162,7 +166,7 @@ form {
 }
 
 .msgElement {
-    color: rgb(29, 56, 29);
+    color: rgb(36, 59, 36);
 }
 
 .incoming {

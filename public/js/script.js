@@ -5,7 +5,6 @@ const message = document.getElementById('textarea');
 const roomid = document.getElementById('roomid');
 const messagesContainer = document.getElementById('message__area');
 const username = document.getElementById('username');
-// const form = document.getElementById('messagesForm');
 const usersjoinedList = document.getElementById('users');
 
 
@@ -16,8 +15,8 @@ socket.emit('join', obj, (error) => {
    console.log(error);
 })
 
-socket.on('IncomingPosition', (location) => { //printing the position on the console
-   console.log(location);
+socket.on('IncomingPosition', (location) => { 
+   // console.log(location);
    const msg = document.createElement("div");
    msg.className = "incoming";
    msg.innerHTML = `<span class="user">${location.username}   ${moment(location.time).format('h:mm a')}</span>
@@ -26,7 +25,7 @@ socket.on('IncomingPosition', (location) => { //printing the position on the con
    scrollToBottom();
 })
 socket.on('OutgoingPosition', (location) => { //printing the position on the console
-   console.log(location);
+   // console.log(location);
    const msg = document.createElement("div");
    msg.className = "outgoing";
    msg.innerHTML = `<span class="user">${location.username}   ${moment(location.time).format('h:mm a')}</span>
@@ -38,7 +37,7 @@ socket.on('OutgoingPosition', (location) => { //printing the position on the con
 // for messages 
 
 socket.on('Incoming', (message) => {
-   console.log(message.text);
+   // console.log(message.text);
    const msg = document.createElement("p");
    msg.className = "incoming";
    msg.innerHTML = `<span class="user">${message.username}    ${moment(message.time).format('h:mm a')}</span>
@@ -46,8 +45,11 @@ socket.on('Incoming', (message) => {
    messagesContainer.appendChild(msg);
    scrollToBottom();
 })
+socket.on('userdetails',(userdata)=>{
+   username.innerHTML = `<i id="usernav" class="fas fa-user-circle"></i> ${userdata.user}`;
+})
 socket.on('joiningMessage', (message) => {
-   console.log(message.text);
+   // console.log(message);
    const msg = document.createElement("p");
    msg.innerHTML = `<div class="message">
                           <span class="time">
@@ -60,8 +62,21 @@ socket.on('joiningMessage', (message) => {
    messagesContainer.appendChild(msg);
    scrollToBottom();
 })
+socket.on('badLanguageAlert', (message)=>{
+   const msg = document.createElement("p");
+   msg.innerHTML = `<div class="message">
+                          <span class="time">
+                                 ${moment(message.time).format('h:mm a')}
+                           </span>
+                           <div class="messageElement">
+                                 ${message.text} 
+                           </div>
+                     </div>`;
+   messagesContainer.appendChild(msg);
+   scrollToBottom();
+})
 socket.on('disconnectionMessage', (message) => {
-   console.log(message.text);
+   // console.log(message.text);
    const msg = document.createElement("p");
    msg.innerHTML = `<div class="message">
                            <span class="time">
@@ -75,7 +90,7 @@ socket.on('disconnectionMessage', (message) => {
    scrollToBottom();
 })
 socket.on('Outgoing', (message) => {
-   console.log(message.text);
+   // console.log(message.text);
    const msg = document.createElement("div");
    msg.className = "outgoing";
    msg.innerHTML = `<span class="user">${message.username}   ${moment(message.time).format('h:mm a')}</span>
@@ -89,9 +104,7 @@ socket.on('Outgoing', (message) => {
 
 socket.on('roomData', (obj) => {
    usersjoinedList.innerHTML = ``;
-   console.log('this is the user ',obj);
-   username.innerHTML = `<i id="usernav" class="fas fa-user-circle"></i> ${obj.user}`;
-   // const userListContainer = document.createElement("div");
+   // console.log('this is the user ',obj);
    roomid.innerHTML = `<i class="fas fa-users"></i> ${obj.room}`;
    obj.users.forEach((user) => {
       const userListItem = document.createElement("li");
