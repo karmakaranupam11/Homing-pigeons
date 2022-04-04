@@ -3,7 +3,7 @@
 - Click on the below link 
 ### Website Link : https://homing-pigeon.herokuapp.com/ 🚀
 
-### What is Homing-pigeon 🤔
+### What is Homing-pigeons 🤔
 
 Homing-pigeons is a realtime messaging web application, in which users can join in a chat room and start chatting,the messaging application also prevents sending of any abusive words and users can also share their current location.
 
@@ -25,4 +25,4 @@ Homing-pigeons is a realtime messaging web application, in which users can join 
     >> npm start 
     or 
     >> npm run dev
-> Upkaar runs on your Local Machine ```
+> Homing pigeons runs on your Local Machine ```
