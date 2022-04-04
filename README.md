@@ -1,19 +1,28 @@
 ### Homing-pigeons ###
 
 - Click on the below link 
-### Website Link : https://homing-pigeon.herokuapp.com/
+### Website Link : https://homing-pigeon.herokuapp.com/ 🚀
+
+### What is Homing-pigeon 🤔
 
 Homing-pigeons is a realtime messaging web application, in which users can join in a chat room and start chatting,the messaging application also prevents sending of any abusive words and users can also share their current location.
 
-### Tech stack ###
+### Tech Stack 🎚️🛠️
 
-- HTML
+- Html
 - CSS
 - JavaScript
-- NodeJs
-- ExpressJs
-- Socket.io
+- node.Js - https://nodejs.org/en/
+- Express - https://expressjs.com/
+- socket.io - https://socket.io/
 
-### For starting the application
+### For starting the application⚡
 
-```$> npm start```
+``` > Clone the repo
+> Install the dependencies
+    >> npm install
+> Start the server
+    >> npm start 
+    or 
+    >> npm run dev
+> Upkaar runs on your Local Machine ```
