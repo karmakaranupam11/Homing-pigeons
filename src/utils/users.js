@@ -51,10 +51,22 @@ const getusrinroom  = (room ) => {
     return users.filter((user) => user.room  === room )
 }
 
+const getActiveRooms = () => {
+    const rooms = users.map((user) => user.room)
+    return [...new Set(rooms)]
+}
+
+const roomExists = (room) => {
+    const r = room.trim().toLowerCase()
+    return users.some((user) => user.room === r)
+}
+
 module.exports = {
     addusr,
     removeusr,
     getusr,
     capitalizeFirstLetter,
-    getusrinroom 
+    getusrinroom,
+    getActiveRooms,
+    roomExists
 }

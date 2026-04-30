@@ -4,22 +4,32 @@ const socketio = require('socket.io')
 const http = require('http')
 const Filter = require('bad-words')
 const { generateMessage , generateLocation } = require('./utils/message')
-const { addusr, removeusr, getusr, getusrinroom, capitalizeFirstLetter } = require('./utils/users')
+const { addusr, removeusr, getusr, getusrinroom, capitalizeFirstLetter, getActiveRooms, roomExists } = require('./utils/users')
 
 const app = express()
 const server = http.createServer(app) // we need to do this as socket io need the http server
 const io = socketio(server)
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4040;
 const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectoryPath));
+
+// REST endpoint: returns list of active room IDs
+app.get('/api/rooms', (req, res) => {
+    res.json({ rooms: getActiveRooms() });
+});
 
 
 io.on('connection', (socket) => {
     console.log('new websocket connection')
 
     socket.on('join', (obj, callback) => {
+        // If joining an existing room, check it exists first
+        if (obj.isNew !== 'true' && !roomExists(obj.room)) {
+            return callback('Room not found. Please check the Room ID or create a new room.');
+        }
+
         const { error, user } = addusr({
             id: socket.id,
             username: obj.username,
