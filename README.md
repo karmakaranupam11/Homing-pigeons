@@ -1,4 +1,4 @@
-# Homing-Pigeons 🕊️
+# <img src="public/img/pigeon-logo.png" width="40" height="40" style="vertical-align: middle; border-radius: 8px;"> Homing-Pigeons 🕊️
 
 Homing-Pigeons is a modern, real-time messaging web application. Users can instantly create private chat rooms or join existing ones. Built with real-time bidirectional communication, it features an elegant UI and rich media integrations.
 
