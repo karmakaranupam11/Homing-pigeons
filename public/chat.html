@@ -256,7 +256,7 @@
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
     // ===== GIF Panel =====
-    const TENOR_KEY = 'AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCHQ';
+    const TENOR_KEY = 'LIVDSRZULELA';
     const gifGrid   = document.getElementById('gifGrid');
     const gifSearch = document.getElementById('gifSearch');
     const gifLoading = document.getElementById('gifLoading');
@@ -278,13 +278,13 @@
       gifGrid.appendChild(gifLoading);
       try {
         const url = query
-          ? `https://tenor.googleapis.com/v2/search?q=${encodeURIComponent(query)}&key=${TENOR_KEY}&limit=24&media_filter=gif`
-          : `https://tenor.googleapis.com/v2/featured?key=${TENOR_KEY}&limit=24&media_filter=gif`;
+          ? `https://api.tenor.com/v1/search?q=${encodeURIComponent(query)}&key=${TENOR_KEY}&limit=24`
+          : `https://api.tenor.com/v1/trending?key=${TENOR_KEY}&limit=24`;
         const res  = await fetch(url);
         const data = await res.json();
         gifGrid.innerHTML = '';
         (data.results || []).forEach(gif => {
-          const url = gif.media_formats?.tinygif?.url || gif.media_formats?.gif?.url;
+          const url = gif.media[0]?.tinygif?.url || gif.media[0]?.gif?.url;
           if (!url) return;
           const img = document.createElement('img');
           img.src   = url;
@@ -292,7 +292,7 @@
           img.className = 'gif-thumb';
           img.loading = 'lazy';
           img.addEventListener('click', () => {
-            sendGif(gif.media_formats?.gif?.url || url);
+            sendGif(gif.media[0]?.gif?.url || url);
             closeAllPickers();
           });
           gifGrid.appendChild(img);

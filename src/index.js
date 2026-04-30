@@ -82,6 +82,15 @@ io.on('connection', (socket) => {
         callback();
     })
 
+    socket.on('sendGif', (gifUrl, callback) => {
+        const user = getusr(socket.id);
+        if(user) {
+            socket.emit('IncomingGif', generateMessage(user.username, gifUrl));
+            socket.broadcast.to(user.room).emit('OutgoingGif', generateMessage(user.username, gifUrl));
+        }
+        if(callback) callback();
+    })
+
     socket.on('disconnect', () => {
         const user = removeusr(socket.id);
         if (user) {

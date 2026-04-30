@@ -224,6 +224,40 @@ socket.on('OutgoingPosition', (location) => {
   scrollToBottom();
 });
 
+// ===== SENT GIF =====
+socket.on('IncomingGif', (message) => {
+  removeIntro();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'incoming';
+  wrapper.innerHTML = `
+    <div class="bubble gif-bubble">
+      <img src="${message.text}" alt="GIF" class="chat-gif" />
+      <span class="bubble-time">${formatTime(message.time)}</span>
+    </div>
+  `;
+  messagesContainer.appendChild(wrapper);
+  scrollToBottom();
+});
+
+// ===== RECEIVED GIF =====
+socket.on('OutgoingGif', (message) => {
+  removeIntro();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'outgoing';
+  wrapper.innerHTML = `
+    <div class="msg-meta">
+      <div class="user-avatar-sm" style="width:22px;height:22px;font-size:10px;background:linear-gradient(135deg,#7c3aed,#4f46e5);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:700;">${getInitials(message.username)}</div>
+      <span style="font-size:12px;font-weight:600;color:#a78bfa;">${escapeHtml(message.username)}</span>
+    </div>
+    <div class="bubble gif-bubble">
+      <img src="${message.text}" alt="GIF" class="chat-gif" />
+      <span class="bubble-time">${formatTime(message.time)}</span>
+    </div>
+  `;
+  messagesContainer.appendChild(wrapper);
+  scrollToBottom();
+});
+
 // ===== SEND MESSAGE =====
 sendMessageButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -238,6 +272,13 @@ sendMessageButton.addEventListener('click', (e) => {
   messageInput.value = '';
   messageInput.focus();
 });
+
+// ===== SEND GIF =====
+window.sendGifMessage = function(url) {
+  socket.emit('sendGif', url, (err) => {
+    if (err) console.warn('GIF error:', err);
+  });
+};
 
 // ===== SEND LOCATION =====
 const sendLocationButton = document.getElementById('sendLocationButton');

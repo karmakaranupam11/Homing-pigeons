@@ -1,30 +1,52 @@
-### Homing-pigeons ###
+# Homing-Pigeons 🕊️
 
-- Click on the below link 
-### Website Link : https://homing-pigeons.onrender.com 🚀
+Homing-Pigeons is a modern, real-time messaging web application. Users can instantly create private chat rooms or join existing ones. Built with real-time bidirectional communication, it features an elegant UI and rich media integrations.
 
-<img width="622" alt="login" src="https://user-images.githubusercontent.com/78259115/213477587-ce7b4a76-beaf-4876-8dd0-76d12f9463de.png">
+### Website Link : [https://homing-pigeons.onrender.com](https://homing-pigeons.onrender.com) 🚀
 
-### What is Homing-pigeons 🤔
+---
 
-Homing-pigeons is a realtime messaging web application, in which users can join in a chat room and start chatting,the messaging application also prevents sending of any abusive words and users can also share their current location.
+## What's New? ✨
+The application has recently undergone a massive overhaul to modernize the user experience:
 
-### Tech Stack 🎚️🛠️
+- **Beautiful Modern UI:** A fully redesigned, Discord/Telegram-inspired interface with animated backgrounds, glassmorphism, and responsive layouts.
+- **Dark/Light Mode:** Seamlessly switch between themes with a dedicated toggle. Your preference is saved locally.
+- **Smart Room System:**
+  - **Create Room:** Automatically generates a unique, human-readable Room ID (e.g., `swift-river-3921`) to start a new space.
+  - **Join Room:** Includes server-side validation to ensure users can only join active, existing rooms.
+  - **Easy Sharing:** A handy "Copy Room ID" button in the sidebar with a visual toast notification.
+- **Rich Media & Emojis:** 
+  - Integrated emoji picker for quick reactions.
+  - Dedicated GIF panel powered by the Tenor API to search and share animated GIFs effortlessly.
+- **Safety First:** Built-in profanity filter prevents the sending of abusive words.
+- **Location Sharing:** Quickly share your exact geographical location with the room via Google Maps.
 
-- Html
-- CSS
-- JavaScript
-- node.Js - https://nodejs.org/en/
-- Express - https://expressjs.com/
-- socket.io - https://socket.io/
+## Tech Stack 🎚️🛠️
 
-### For starting the application⚡
+- **Frontend:** HTML5, CSS3 (Vanilla with CSS Variables), JavaScript
+- **Backend:** Node.js, Express.js
+- **Real-Time Engine:** Socket.io
+- **Integrations:** Tenor API (for GIFs), `emoji-picker-element`
 
-``` > Clone the repo
-> Install the dependencies
-    >> npm install
-> Start the server
-    >> npm start 
-    or 
-    >> npm run dev
-> Homing pigeons runs on your Local Machine ```
+## Running the Application Locally ⚡
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Homing-pigeons
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the server**
+   ```bash
+   npm start
+   # OR for development with nodemon:
+   npm run dev
+   ```
+
+4. **Open in Browser**
+   Navigate to `http://localhost:4040` to see Homing-Pigeons running on your local machine.
